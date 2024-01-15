@@ -1,7 +1,23 @@
 # Historical-teams
 Site that will display historical teams that has the functionality of adding more teams
 
-## wireframes
+## Technologies used
+- NodeJS (backend)
+- MongoDB (database)
+- Express JS (Framework based on NodeJS)
+- Mongoose (object data modeling library)
+- Dotenv (environment variables)
+- Nodemon (Monitoring Server - Auto restart server)
+- EJS (Embedded JS Template Enginer)
+- Bootstrap 5 (CSS Framework for styling and interactivity)
+
+## Installation Instructions 
+(To be added)
+
+## User Stories
+(To be added)
+
+## Wireframes
 ![HomePageDesktop](https://media.git.generalassemb.ly/user/51685/files/5fd8273c-d824-43ab-a86d-eef1051d2636)
 ![HomePageMobile](https://media.git.generalassemb.ly/user/51685/files/8cb1fc99-f552-4aa5-86ca-fcabc2773bfd)
 ![teamsDisplayDesktop](https://media.git.generalassemb.ly/user/51685/files/4ad59c5b-3629-4f99-a682-d372ca9503dc)
@@ -25,3 +41,9 @@ Site that will display historical teams that has the functionality of adding mor
 | `/teams/:id/addtrophy`       | Add Trophy         | PUT       | Update       | Increase trophy count for a team              | Redirect to `/teams/:id`    |
 | `/teams/:id/newplayer`       | New Notable Player | GET       | N/A          | Show form to add a new notable player         | `new-player.ejs`            |
 | `/teams/:id/addplayer`       | Add Notable Player | POST      | Create       | Add a new notable player to a team            | Redirect to `/teams/:id`    |
+
+## Description of unsolved problems or major hurdles
+(To be added)
+
+## Description of future plans for this application
+(To be added)
