@@ -30,7 +30,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
-/* Home route -displays all products
+/* Home route - displays all teams
 --------------------------------------------------------------- */
 app.get('/', async function(req, res) {
     try {
@@ -41,6 +41,65 @@ app.get('/', async function(req, res) {
         res.send(`Error: ${error}`);
     }
 })
+
+app.get('/about', async function(req, res) {
+    try {
+        const teams = await Team.find({});
+        res.render('about', { teams });
+    }
+    catch(error) {
+        res.send(`Error: ${error}`)
+    }
+})
+
+app.get(`/teams`, async function (req, res) {
+    try {
+        const teams = await Team.find({});
+        res.render('teams', { teams })
+    }
+    catch(error) {
+        res.send(`Error: ${error}`)
+    }
+})
+
+/*-------------- Routes to go to new team form -------------*/
+app.get(`/teams/new`, async function(req, res) {
+    try {
+        const teams = await Team.find({});
+        res.render('new-team', {teams})
+    }
+    catch(error) {
+        res.send(`Error: ${error}`)
+    }
+})
+
+/*-------------- Routes to post a to new team  -------------*/
+app.post('/teams', async function(req, res) {
+    try {
+        const newTeam = await Team.create(req.body);
+        res.redirect(`/teams/${newTeam._id}`);
+    } catch (error) {
+        res.send('Error encountered: ' + error);
+    }
+});
+
+/*-------------- Routes to controller  ------------------*/
+//app.get('/teams/:id', teamController) // show team details
+
+
+/*-------------- Routes to get team details  -------------*/
+// app.get(`/teams/:id`, async function(req, res) {
+//     try {
+//         const teams = await Team.find({});
+//         res.render(`team-details`, {teams})
+//     }
+//     catch(error) {
+//         res.send(`Error: ${error}`)
+//     }
+// })
+
+/*-------------- Routes to edit team details  -------------*/
+
 
 // Route to display form for adding a new team
 
