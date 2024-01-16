@@ -18,7 +18,10 @@ const teamSchema = new mongoose.Schema({
     nickName: { type: String },
     yearFounded: { type: Date, required: true },
     trophies: { type: Number, required: true},
-    notablePlayers: [playerSchema],
+    notablePlayers: {
+        type: [playerSchema],
+        required: false
+    }
 });
 
 module.exports = mongoose.model('team', teamSchema);
