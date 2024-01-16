@@ -84,8 +84,11 @@ app.post('/teams', async function(req, res) {
 });
 
 /*-------------- Routes to controller  ------------------*/
-//app.get('/teams/:id', teamController) // show team details
-
+app.get('/teams/:id', teamController.show); // show team details
+app.get('/teams/:id/edit', teamController.edit); // edit team details
+app.put('/teams/:id', teamController.update) // update team details
+app.delete('/teams/:id', teamController.delete); // delete team
+app.put('/teams/:id/addtrophy', teamController.addtrophy) // add trophy
 
 /*-------------- Routes to get team details  -------------*/
 // app.get(`/teams/:id`, async function(req, res) {
