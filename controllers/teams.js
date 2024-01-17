@@ -41,6 +41,27 @@ const teamController = {
             res.send('Error: ' + error);
         }
     },
+
+    newNotablePlayer: async (req, res) => {
+        try {
+            const team = await Team.findById(req.params.id)
+            res.render('new-player', { team })
+        }
+        catch (error) {            
+            res.send(`Error: ${error}`)
+        }
+    },
+
+    addPlayer: async (req, res) => {
+        try {
+            await Team.findByIdAndUpdate(req.params.id, {
+                $push: { newNotablePlayer: req.body }
+            });
+            res.redirect(`/teams/${req.params.id}`); // Redirect after adding the review
+        } catch (error) {
+            res.send('Error encountered: ' + error);
+        }
+    }
 }
 
 module.exports = teamController;

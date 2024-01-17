@@ -89,6 +89,9 @@ app.get('/teams/:id/edit', teamController.edit); // edit team details
 app.put('/teams/:id', teamController.update) // update team details
 app.delete('/teams/:id', teamController.delete); // delete team
 app.put('/teams/:id/addtrophy', teamController.addtrophy) // add trophy
+app.get('/teams/:id/new-player', teamController.newNotablePlayer) // go to notable player form
+app.post('/teams/:id/new-player', teamController.addPlayer); // add new notable player
+
 
 /*-------------- Routes to get team details  -------------*/
 // app.get(`/teams/:id`, async function(req, res) {
@@ -110,15 +113,7 @@ app.put('/teams/:id/addtrophy', teamController.addtrophy) // add trophy
 //     res.render('new-product');
 // });
 
-// Route to handle create a new team
-// app.post('/products', async function(req, res) {
-//     try {
-//         const newProduct = await Product.create(req.body);
-//         res.redirect(`/products/${newProduct._id}`);
-//     } catch (error) {
-//         res.send('Error encountered: ' + error);
-//     }
-// });
+// Route to handle create a new notable player
 
 // Route to delete a team
 // app.delete('/products/:id', productController.delete);
