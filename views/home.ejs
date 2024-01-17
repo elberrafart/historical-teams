@@ -1,3 +1,12 @@
-<h1>This is the home page</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head', { title: 'Home Page' }) %>
+    </head>
+<body>
+    <%- include('partials/nav') %>
+    <h1 class="text-center">Your Favorite Team:</h1>
+    <img src="https://i.imgur.com/DUkKnLg.png" class="rounded mx-auto d-block">
+    <%- include('partials/footer') %>
+</body>
 
-<h2>Your favorite team here</h2>
