@@ -92,8 +92,8 @@ app.post('/teams', async function(req, res) {
 
 /*-------------- Routes to controller  ------------------*/
 app.get('/teams/:id', teamController.show); // show team details
-app.get('/teams/:id/edit', teamController.edit); // edit team details
-app.put('/teams/:id', teamController.update) // update team details
+app.get('/teams/:id/edit', teamController.edit); // edit team details form
+app.put('/teams/:id', teamController.update) // update team details from update
 app.delete('/teams/:id', teamController.delete); // delete team
 app.put('/teams/:id/addtrophy', teamController.addtrophy) // add trophy
 app.get('/teams/:id/new-player', teamController.newNotablePlayer) // go to notable player form

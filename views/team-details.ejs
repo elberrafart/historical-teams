@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <%- include('partials/head', { title: 'Home Page' }) %>
-    </head>
+<head>
+    <%- include('partials/head', { title: 'Home Page' }) %>
+</head>
 <body>
     <%- include('partials/nav') %>
-    <h1 class="text-center">Team Details</h1>
 
-    <div class="card-body">
-        <img src="<%= team.teamLogo %>" class="card-img-top" alt="<%= team.name %>">
-        <h1 class="card-title"><%= team.teamName %></h1>
-        <h5 class="card-subtitle mb-2 text-muted">Nickname: $<%= team.nickName %></h5>
-        <p class="card-text">Year Founded: <%= team.yearFounded %></p>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Team Details</h1>
 
-        <% if (team.trophies === 0) { %>
-            <p class="text-danger"><strong>No trophies</strong></p>
-        <% } else { %>
-            <p>Trophies: <%= team.trophies %></p>
-        <% } %>
-        <button class="btn btn-primary">Add Trophy</button>
-        <button class="btn btn-primary">New Player</button>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger">Delete</button>
+        <div class="card mb-3">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="<%= team.teamLogo %>" class="card-img" alt="<%= team.teamName %>">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= team.teamName %></h5>
+                        <p class="card-text"><small class="text-muted">Nickname: <%= team.nickName %></small></p>
+                        <p class="card-text">Year Founded: <%= team.yearFounded %></p>
 
+                        <% if (team.trophies === 0) { %>
+                            <p class="text-danger"><strong>No trophies</strong></p>
+                        <% } else { %>
+                            <p>Trophies: <%= team.trophies %></p>
+                        <% } %>
+
+                        <button class="btn btn-primary">Add Trophy</button>
+                        <button class="btn btn-primary">New Player</button>
+                        <button class="btn btn-primary">Edit</button>
+                        <button class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+                <a href="/teams" class="btn btn-info">Back to Teams Gallery</a>
+            </div>
+        </div>
     </div>
 
     <%- include('partials/footer') %>
 </body>
+</html>
