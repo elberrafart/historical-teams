@@ -1,1 +1,29 @@
-<h1>Team Details</h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- include('partials/head', { title: 'Home Page' }) %>
+    </head>
+<body>
+    <%- include('partials/nav') %>
+    <h1 class="text-center">Team Details</h1>
+
+    <div class="card-body">
+        <img src="<%= team.teamLogo %>" class="card-img-top" alt="<%= team.name %>">
+        <h1 class="card-title"><%= team.teamName %></h1>
+        <h5 class="card-subtitle mb-2 text-muted">Nickname: $<%= team.nickName %></h5>
+        <p class="card-text">Year Founded: <%= team.yearFounded %></p>
+
+        <% if (team.trophies === 0) { %>
+            <p class="text-danger"><strong>No trophies</strong></p>
+        <% } else { %>
+            <p>Trophies: <%= team.trophies %></p>
+        <% } %>
+        <button class="btn btn-primary">Add Trophy</button>
+        <button class="btn btn-primary">New Player</button>
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+
+    </div>
+
+    <%- include('partials/footer') %>
+</body>

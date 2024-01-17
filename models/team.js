@@ -14,13 +14,14 @@ const playerSchema = new mongoose.Schema({
 // Create a schema for team
 const teamSchema = new mongoose.Schema({
     teamName: { type: String, required: true },
-    teamLogo: { data: Buffer, contentType: String },
+    teamLogo: { type: String, required: false },
     nickName: { type: String },
-    yearFounded: { type: Date, required: true },
+    yearFounded: { type: Number, required: true },
     trophies: { type: Number, required: true},
     notablePlayers: {
         type: [playerSchema],
-        required: false
+        required: false,
+        default: []
     }
 });
 

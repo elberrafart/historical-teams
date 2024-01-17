@@ -6,7 +6,7 @@ require('dotenv').config()
 const path = require('path');
 const express = require('express');
 const Team = require('./models/team')
-const seedProducts = require('./models/seed')
+const seedTeams = require('./models/seed')
 // Add delete request functionality
 const methodOverride = require('method-override');
 
@@ -42,6 +42,12 @@ app.get('/', async function(req, res) {
     }
 })
 
+app.get('/home', function(req, res) {
+    res.redirect('/');
+});
+
+
+/* ------------About route - leads to display page-------------------------- */
 app.get('/about', async function(req, res) {
     try {
         const teams = await Team.find({});
@@ -52,6 +58,7 @@ app.get('/about', async function(req, res) {
     }
 })
 
+/*-------- Teams route - displays all teams in teams gallery page ----------- */
 app.get(`/teams`, async function (req, res) {
     try {
         const teams = await Team.find({});
@@ -92,11 +99,11 @@ app.put('/teams/:id/addtrophy', teamController.addtrophy) // add trophy
 app.get('/teams/:id/new-player', teamController.newNotablePlayer) // go to notable player form
 app.post('/teams/:id/new-player', teamController.addPlayer); // add new notable player
 
-// Seed Route to populate the database with initial data
+// Seed Route to populate the database with seed data
 app.get('/seed', async(req, res) => {
     try {
         await Team.deleteMany({});
-        await Team.insertMany(seedProducts);
+        await Team.insertMany(seedTeams);
         res.send('Database seeded')
     }
     catch (error) {

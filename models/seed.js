@@ -1,9 +1,9 @@
 const teams = [
     {
         teamName: "FC Barcelona",
-        teamLogo: { data: Buffer.from(''), contentType: 'image/png' }, // Placeholder for logo
+        teamLogo: "https://www.freevector.com/uploads/vector/preview/13478/FreeVector-FC-Barcelona-2002.jpg", // Placeholder for logo
         nickName: "Barça",
-        yearFounded: new Date(1899, 0, 1),
+        yearFounded: 1899,
         trophies: 26,
         notablePlayers: [
             { 
@@ -24,9 +24,9 @@ const teams = [
     },
     {
         teamName: "Real Madrid CF",
-        teamLogo: { data: Buffer.from(''), contentType: 'image/png' },
+        teamLogo: "https://www.freevector.com/uploads/vector/preview/14053/FreeVector-Real-Madrid-FC.jpg",
         nickName: "Los Blancos",
-        yearFounded: new Date(1902, 0, 1),
+        yearFounded: 1902,
         trophies: 34,
         notablePlayers: [
             { 

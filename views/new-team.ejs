@@ -5,7 +5,44 @@
     </head>
 <body>
     <%- include('partials/nav') %>
-    <h1 class="text-center">New Teams Form</h1>
+    <div class="container mt-5">
+        <h1 class="mb-4 text-center">New Teams Form</h1>
+
+        
+        <form action="/teams" method="POST">
+            <div class="mb-3">
+                <label for="teamName" class="form-label">Team Name:</label>
+                <input type="text" class="form-control" id="teamName" name="teamName" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="teamLogo" class="form-label">Team Logo URL:</label>
+                <input type="text" class="form-control" id="teamLogo" name="teamLogo">
+            </div>
+
+            <div class="mb-3">
+                <label for="nickName" class="form-label">Nickname:</label>
+                <input type="text" class="form-control" id="nickName" name="nickName">
+            </div>
+
+            <div class="mb-3">
+                <label for="yearFounded" class="form-label">Year Founded:</label>
+                <input type="number" class="form-control" id="yearFounded" name="yearFounded" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="trophies" class="form-label">Trophies:</label>
+                <input type="number" class="form-control" id="trophies" name="trophies" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="notablePlayers" class="form-label">Notable Players:</label>
+                <textarea class="form-control" id="notablePlayers" name="notablePlayers" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Add Team</button>
+        </form>
+    </div>
 
     <%- include('partials/footer') %>
 </body>
