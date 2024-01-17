@@ -26,10 +26,19 @@
                             <p>Trophies: <%= team.trophies %></p>
                         <% } %>
 
-                        <button class="btn btn-primary">Add Trophy</button>
+                        
+
+                        <form action="/teams/<%= team._id %>/addtrophy?_method=PUT" method="POST">
+                            <button type="submit" class="btn btn-primary">Add Trophy</button>
+                        </form>
+                        
+
                         <button class="btn btn-primary">New Player</button>
-                        <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <a href="/teams/<%= team._id %>/edit" class="btn btn-primary">Edit</a>
+        
+                        <form action="/teams/<%= team._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
                     </div>
                 </div>
                 <a href="/teams" class="btn btn-info">Back to Teams Gallery</a>
