@@ -1,6 +1,7 @@
 const Player = require('../models/player')
 
 const playerController = {
+    /* Renders Players to team details */
     show: async (req, res) => {
         try {
             const allPlayers = await Player.find({})

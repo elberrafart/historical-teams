@@ -9,7 +9,7 @@ const playerSchema = new mongoose.Schema({
     photo: String,
     trophies: { type: String, required: true},
     age: { type: Number, required: true},
-    active: { type: Boolean, required: true },
+    active: Boolean,
 })
 
 

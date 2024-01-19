@@ -4,7 +4,7 @@ const Player = require('../models/player');
 const teamController = {
     show: async (req, res) => {
         try {
-            const team = await Team.findById(req.params.id);
+            const team = await Team.findById(req.params.id).populate('players');
             const allPlayers = await Player.find({})
             res.render('team-details', { team, allPlayers });
         } catch (error) {
@@ -46,20 +46,20 @@ const teamController = {
 
     newNotablePlayer: async (req, res) => {
         try {
-            const team = await Team.findById(req.params.id)
-            res.render('new-player', { team })
+            const teamId = req.params.id;
+            res.render('new-player', { teamId });
         }
         catch (error) {            
-            res.send(`Error: ${error}`)
+            res.send(`Error: ${error}`);
         }
-    },
+    },    
 
     addPlayer: async (req, res) => {
         try {
             await Team.findByIdAndUpdate(req.params.id, {
                 $push: { newNotablePlayer: req.body }
             });
-            res.redirect(`/teams/${req.params.id}`); // Redirect after adding the review
+            res.redirect(`/teams/${req.params.id}`); // Redirect after adding the player
         } catch (error) {
             res.send('Error encountered: ' + error);
         }

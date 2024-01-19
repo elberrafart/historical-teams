@@ -25,8 +25,12 @@
                         <% } else { %>
                             <p>Trophies: <%= team.trophies %></p>
                         <% } %>
-
-                        
+                            <p>Notable Players:</p>
+                            <ul>
+                                <% team.players.forEach(function(player) {%>
+                                    <li><%= player.name %> - <%= player.countryName %></li>
+                                <% }); %>
+                            </ul>
 
                         <form action="/teams/<%= team._id %>/addtrophy?_method=PUT" method="POST">
                             <button type="submit" class="btn btn-primary">Add Trophy</button>
@@ -48,13 +52,19 @@
         </div>
     </div>
     <h2>Players List</h2>
-    <ul>
-        <% allPlayers.forEach(function(player) { %>
-            <li>
-                <%= player.name %> - <%= player.countryName %>
-            </li>
-        <% }); %>
-    </ul>
+    <form action="/teams/<%= team._id %>/add-player" method="POST">
+        <div class="mb-3">
+            <label for="playerSelect" class="form-label">Select Player:</label>
+            <select class="form-select" id="playerSelect" name="selectedPlayer">
+                <% allPlayers.forEach(function(player) { %>
+                    <option value="<%= player._id %>"><%= player.name %> - <%= player.countryName %></option>
+                <% }); %>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Player to Team</button>
+    </form>
+    
 
     <%- include('partials/footer') %>
 </body>

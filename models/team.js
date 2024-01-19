@@ -1,9 +1,7 @@
 // Require the Mongoose package
 const mongoose = require('mongoose');
 
-//Schema for teamPlayer
-
-
+const Schema = mongoose.Schema;
 
 // Create a schema for team
 const teamSchema = new mongoose.Schema({
@@ -12,9 +10,7 @@ const teamSchema = new mongoose.Schema({
     nickName: { type: String },
     yearFounded: { type: Number, required: true },
     trophies: { type: Number, required: true},
-    notablePlayers: {
-    
-    }
+    players: [{ type: Schema.Types.ObjectId, ref: 'player' }]
 });
 
 module.exports = mongoose.model('team', teamSchema);

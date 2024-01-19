@@ -6,6 +6,7 @@ require('dotenv').config()
 const path = require('path');
 const express = require('express');
 const Team = require('./models/team')
+const Player = require('./models/player')
 const seedTeams = require('./models/seed')
 // Add delete request functionality
 const methodOverride = require('method-override');
@@ -102,14 +103,34 @@ app.post('/teams', async function(req, res) {
     }
 });
 
+
+/*-------------- Routes to create a new player  -------------*/
 app.post('/players', async function(req, res) {
     try {
-        const newPlayer = await Team.create(req.body);
-        res.redirect(`/teams`)
-    } catch(error) {
-        res.send(`Error: ${error}`)
+        await Player.create(req.body);
+        const teamId = req.body.teamId; // Retrieve the team ID from the form
+        res.redirect(`/teams/${teamId}`);
+    } catch (error) {
+        res.send(`Error: ${error}`);
     }
-})
+});
+
+
+/*-------------- Routes to post an existing player  -------------*/
+app.post('/teams/:teamId/add-player', async function(req, res) {
+    try {
+        const teamId = req.params.teamId;
+        const playerId = req.body.selectedPlayer; // Get player ID from the form data
+        const team = await Team.findById(teamId);
+        team.players.push(playerId);
+        await team.save();
+        res.redirect(`/teams/${teamId}`);
+    } catch(error) {
+        res.send(`Error: ${error}`);
+    }
+});
+
+
 
 /*-------------- Routes to team controller  ------------------*/
 app.get('/teams/:id', teamController.show); // show team details
@@ -119,6 +140,7 @@ app.delete('/teams/:id', teamController.delete); // delete team
 app.put('/teams/:id/addtrophy', teamController.addtrophy) // add trophy
 app.get('/teams/:id/new-player', teamController.newNotablePlayer) // go to notable player form
 app.post('/teams/:id/new-player', teamController.addPlayer); // add new notable player
+
 
 /*-------------- Routes to player controller  ------------------*/
 app.get('/player', playerController.show)
