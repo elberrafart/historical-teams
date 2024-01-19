@@ -28,8 +28,19 @@ app.set('views', path.join(__dirname, 'views'));
 /* Set up middleware to server static files and override methods
 --------------------------------------------------------------- */
 app.use(express.static('public'))
+// app.use(express.urlencoded({ extended: true }));
+// app.use(methodOverride('_method'));
+
+
+
+// Body parser: used for POST/PUT/PATCH routes: 
+// this will take incoming strings from the body that are URL encoded and parse them 
+// into an object that can be accessed in the request parameter as a property called body (req.body).
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'))
+// Allows us to interpret POST requests from the browser as another request type: DELETE, PUT, etc.
 app.use(methodOverride('_method'));
+
 
 /* Home route - displays all teams
 --------------------------------------------------------------- */
@@ -113,16 +124,19 @@ app.post('/teams/:id/new-player', teamController.addPlayer); // add new notable 
 app.get('/player', playerController.show)
 
 // Seed Route to populate the database with seed data
-app.get('/seed', async(req, res) => {
-    try {
-        await Team.deleteMany({});
-        await Team.insertMany(seedTeams);
-        res.send('Database seeded')
-    }
-    catch (error) {
-        res.send(`Error seeding database: ${error}`)
-    }
-})
+if (process.env.ON_HEROKU === 'false'){
+    app.get('/seed', async(req, res) => {
+        try {
+            await Team.deleteMany({});
+            await Team.insertMany(seedTeams);
+            res.send('Database seeded')
+        }
+        catch (error) {
+            res.send(`Error seeding database: ${error}`)
+        }
+    })
+}
+
 
 /* Tell the app to listen on the specified port
 --------------------------------------------------------------- */
