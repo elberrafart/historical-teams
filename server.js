@@ -14,6 +14,7 @@ const methodOverride = require('method-override');
 --------------------------------------------------------------- */
 const db = require('./models');
 const teamController = require('./controllers/teams');
+const playerController = require('./controllers/player')
 
 /* Initialize the Express app
 --------------------------------------------------------------- */
@@ -86,11 +87,20 @@ app.post('/teams', async function(req, res) {
         const newTeam = await Team.create(req.body);
         res.redirect(`/teams/${newTeam._id}`);
     } catch (error) {
-        res.send('Error encountered: ' + error);
+        res.send(`Error: ${error}`);
     }
 });
 
-/*-------------- Routes to controller  ------------------*/
+app.post('/players', async function(req, res) {
+    try {
+        const newPlayer = await Team.create(req.body);
+        res.redirect(`/teams`)
+    } catch(error) {
+        res.send(`Error: ${error}`)
+    }
+})
+
+/*-------------- Routes to team controller  ------------------*/
 app.get('/teams/:id', teamController.show); // show team details
 app.get('/teams/:id/edit', teamController.edit); // edit team details form
 app.put('/teams/:id', teamController.update) // update team details from update
@@ -98,6 +108,9 @@ app.delete('/teams/:id', teamController.delete); // delete team
 app.put('/teams/:id/addtrophy', teamController.addtrophy) // add trophy
 app.get('/teams/:id/new-player', teamController.newNotablePlayer) // go to notable player form
 app.post('/teams/:id/new-player', teamController.addPlayer); // add new notable player
+
+/*-------------- Routes to player controller  ------------------*/
+app.get('/player', playerController.show)
 
 // Seed Route to populate the database with seed data
 app.get('/seed', async(req, res) => {

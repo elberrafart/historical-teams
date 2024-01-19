@@ -1,10 +1,12 @@
 const Team = require('../models/team'); 
+const Player = require('../models/player'); 
 
 const teamController = {
     show: async (req, res) => {
         try {
             const team = await Team.findById(req.params.id);
-            res.render('team-details', { team });
+            const allPlayers = await Player.find({})
+            res.render('team-details', { team, allPlayers });
         } catch (error) {
             res.send('Error encountered: ' + error);
         }

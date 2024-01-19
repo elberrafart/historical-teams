@@ -32,8 +32,10 @@
                             <button type="submit" class="btn btn-primary">Add Trophy</button>
                         </form>
                         
-
-                        <button class="btn btn-primary">New Player</button>
+                        
+                        <a href="/teams/<%= team._id %>/new-player" class="btn btn-primary">New Player</a>
+                        
+                        
                         <a href="/teams/<%= team._id %>/edit" class="btn btn-primary">Edit</a>
         
                         <form action="/teams/<%= team._id %>?_method=DELETE" method="POST">
@@ -45,6 +47,14 @@
             </div>
         </div>
     </div>
+    <h2>Players List</h2>
+    <ul>
+        <% allPlayers.forEach(function(player) { %>
+            <li>
+                <%= player.name %> - <%= player.countryName %>
+            </li>
+        <% }); %>
+    </ul>
 
     <%- include('partials/footer') %>
 </body>
