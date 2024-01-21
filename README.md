@@ -1,6 +1,9 @@
 # Historical-teams
 Site that will display historical teams that has the functionality of adding more teams
 
+## Visit Site
+Check out my app here: https://historical-teams-1ad7b7bf8835.herokuapp.com/
+
 ## Technologies used
 - NodeJS (backend)
 - MongoDB (database)
@@ -11,9 +14,6 @@ Site that will display historical teams that has the functionality of adding mor
 - EJS (Embedded JS Template Enginer)
 - Bootstrap 5 (CSS Framework for styling and interactivity)
 
-## Installation Instructions 
-(To be added)
-
 ## User Stories
 As a sports fan, I want to see teams and their logo. I want to know their history along with their notable players. I also want to add my teams here so I can have a database of the teams that I like.
 
@@ -22,6 +22,7 @@ As a recruiter, I want to see how the developer has organized their code in a wa
 As an instructor, I want to see how the developer has organized their code and ensure the site runs smoothly. I want to look for the MVC architecture along with making sure the student uses the MEN stack.
 
 ## Wireframes
+
 ![HomePageDesktop](https://media.git.generalassemb.ly/user/51685/files/5fd8273c-d824-43ab-a86d-eef1051d2636)
 ![HomePageMobile](https://media.git.generalassemb.ly/user/51685/files/8cb1fc99-f552-4aa5-86ca-fcabc2773bfd)
 ![teamsDisplayDesktop](https://media.git.generalassemb.ly/user/51685/files/4ad59c5b-3629-4f99-a682-d372ca9503dc)
