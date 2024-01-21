@@ -15,7 +15,11 @@ Site that will display historical teams that has the functionality of adding mor
 (To be added)
 
 ## User Stories
-(To be added)
+As a sports fan, I want to see teams and their logo. I want to know their history along with their notable players. I also want to add my teams here so I can have a database of the teams that I like.
+
+As a recruiter, I want to see how the developer has organized their code in a way to ensure everything runs smoothly. I want to see MVC architecture and how the backend works together with the front end. I want to see comments on the code that explain very well how this developer came about building this project. I want this website to be responsive and styled well.
+
+As an instructor, I want to see how the developer has organized their code and ensure the site runs smoothly. I want to look for the MVC architecture along with making sure the student uses the MEN stack.
 
 ## Wireframes
 ![HomePageDesktop](https://media.git.generalassemb.ly/user/51685/files/5fd8273c-d824-43ab-a86d-eef1051d2636)
@@ -42,8 +46,8 @@ Site that will display historical teams that has the functionality of adding mor
 | `/teams/:id/newplayer`       | New Notable Player | GET       | N/A          | Show form to add a new notable player         | `new-player.ejs`            |
 | `/teams/:id/addplayer`       | Add Notable Player | POST      | Create       | Add a new notable player to a team            | Redirect to `/teams/:id`    |
 
-## Description of unsolved problems or major hurdles
-(To be added)
 
 ## Description of future plans for this application
-(To be added)
+- Allow users to have an option to select their favorite team and have that appear on the home page
+- Edit notable players option
+- Update styling on website with more professional layout and design

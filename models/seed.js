@@ -5,7 +5,7 @@ const teams = [
         nickName: "Barça",
         yearFounded: 1899,
         trophies: 26,
-        notablePlayers: [
+        players: [
             { 
                 name: "Lionel Messi", 
                 age: 35, 
@@ -28,7 +28,7 @@ const teams = [
         nickName: "Los Blancos",
         yearFounded: 1902,
         trophies: 34,
-        notablePlayers: [
+        players: [
             { 
                 name: "Cristiano Ronaldo", 
                 age: 37, 
