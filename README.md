@@ -47,6 +47,13 @@ As an instructor, I want to see how the developer has organized their code and e
 | `/teams/:id/newplayer`       | New Notable Player | GET       | N/A          | Show form to add a new notable player         | `new-player.ejs`            |
 | `/teams/:id/addplayer`       | Add Notable Player | POST      | Create       | Add a new notable player to a team            | Redirect to `/teams/:id`    |
 
+## Major hurdles or problems
+- Edit players within teams
+- Populate edit form with current data
+
+## Installation instruction
+- Install NPM
+- install mongoDB, express, mongoose, dotenv
 
 ## Description of future plans for this application
 - Allow users to have an option to select their favorite team and have that appear on the home page
